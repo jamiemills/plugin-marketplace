@@ -1,0 +1,13 @@
+{
+  "name": "perplexity-cli",
+  "version": "1.0.0",
+  "description": "Question answering with Perplexity.ai from the terminal. Provides structured JSON output with source references.",
+  "author": {
+    "name": "Jamie Mills",
+    "url": "https://github.com/jamiemills"
+  },
+  "homepage": "https://github.com/jamiemills/agent-skills/tree/master/plugins/perplexity-cli",
+  "repository": "https://github.com/jamiemills/agent-skills",
+  "license": "MIT",
+  "keywords": ["perplexity", "question-answering", "research", "ai", "cli"]
+}
