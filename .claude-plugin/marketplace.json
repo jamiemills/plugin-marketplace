@@ -1,5 +1,5 @@
 {
-  "name": "agent-skills",
+  "name": "plugin-marketplace",
   "description": "A collection of Claude Code agent skills and plugins for enhanced AI capabilities",
   "owner": {
     "name": "Jamie Mills",
@@ -10,7 +10,7 @@
       "name": "perplexity-cli",
       "source": {
         "source": "github",
-        "repo": "jamiemills/agent-skills",
+        "repo": "jamiemills/plugin-marketplace",
         "path": "plugins/perplexity-cli"
       },
       "description": "Question answering with Perplexity.ai from the terminal. Provides structured JSON output with source references.",

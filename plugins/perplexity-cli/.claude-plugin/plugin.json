@@ -6,8 +6,8 @@
     "name": "Jamie Mills",
     "url": "https://github.com/jamiemills"
   },
-  "homepage": "https://github.com/jamiemills/agent-skills/tree/master/plugins/perplexity-cli",
-  "repository": "https://github.com/jamiemills/agent-skills",
+  "homepage": "https://github.com/jamiemills/plugin-marketplace/tree/master/plugins/perplexity-cli",
+  "repository": "https://github.com/jamiemills/plugin-marketplace",
   "license": "MIT",
   "keywords": ["perplexity", "question-answering", "research", "ai", "cli"]
 }

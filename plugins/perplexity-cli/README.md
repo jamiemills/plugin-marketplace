@@ -6,12 +6,12 @@ This plugin provides the perplexity-cli skill for Claude Code, enabling AI-power
 
 ### Via Marketplace
 
-Add the agent-skills marketplace and install the plugin:
+Add the plugin-marketplace and install the plugin:
 
 ```bash
 # In Claude Code
-/plugin marketplace add jamiemills/agent-skills
-/plugin install perplexity-cli@agent-skills
+/plugin marketplace add jamiemills/plugin-marketplace
+/plugin install perplexity-cli@plugin-marketplace
 ```
 
 ### Direct Installation
@@ -19,8 +19,8 @@ Add the agent-skills marketplace and install the plugin:
 You can also install directly from the repository:
 
 ```bash
-/plugin marketplace add jamiemills/agent-skills
-/plugin install perplexity-cli@agent-skills
+/plugin marketplace add jamiemills/plugin-marketplace
+/plugin install perplexity-cli@plugin-marketplace
 ```
 
 ## What's Included
@@ -215,6 +215,6 @@ MIT License - see [LICENSE](../../LICENSE) for details.
 ## Support
 
 For issues, questions, or feature requests:
-- Open an issue on [GitHub](https://github.com/jamiemills/agent-skills/issues)
+- Open an issue on [GitHub](https://github.com/jamiemills/plugin-marketplace/issues)
 - Check the [troubleshooting section](#troubleshooting) above
 - Review the [complete skill documentation](skills/perplexity-cli/SKILL.md)
