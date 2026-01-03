@@ -1,0 +1,22 @@
+{
+  "name": "handoff",
+  "displayName": "Handoff",
+  "description": "Extract context from your current thread and start a new focused session. Replicates Amp's handoff feature for Claude Code.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Jamie Mills",
+    "email": "jamie@example.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jamiemills/agent-skills",
+    "directory": "plugins/handoff"
+  },
+  "keywords": [
+    "context-management",
+    "session-handling",
+    "productivity",
+    "amp-handoff"
+  ],
+  "license": "MIT"
+}
