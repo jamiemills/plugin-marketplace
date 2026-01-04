@@ -108,8 +108,11 @@ At the start of each day, check for incomplete todos from yesterday:
 2. Identify all items with `[ ]` prefix (incomplete)
 3. By default, automatically move all incomplete todos from yesterday to `later.txt`
 4. Update files accordingly and commit/push changes with message: "Move: [N] incomplete todos from yesterday to later"
-5. If the user wants to override and move an incomplete todo to a specific date instead, they can explicitly ask
-6. Report to user: "Moved [N] incomplete todos from yesterday to later" (with the list)
+5. List the moved todos for the user
+6. Ask: "Do you want any of these moved to today or another day?"
+7. Only move todos out of later if the user explicitly requests it (specify date or "today")
+8. If the user ignores the question, take no further action
+9. If user requests moves, update files, commit and push
 
 ## Workflows
 
