@@ -5,7 +5,7 @@ description: Manages todo lists in the local to-dos repository with checkbox for
 
 # Managing Todos Skill
 
-Manages todo items stored in the local to-dos repository at `/Users/jamie.mills/projects/wip/to-dos/`.
+Manages todo items stored in the local to-dos repository at `$HOME/projects/wip/to-dos/`.
 
 ## How It Works
 
@@ -142,7 +142,7 @@ All changes automatically:
 3. Commit with descriptive message (`Add:`, `Complete:`, `Remove:`, `Move:`)
 4. Push to remote with `git push`
 
-Repo location: `/Users/jamie.mills/projects/wip/to-dos/`
+Repo location: `$HOME/projects/wip/to-dos/`
 
 ## File Naming Convention
 
