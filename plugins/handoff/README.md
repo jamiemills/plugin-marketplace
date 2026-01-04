@@ -192,6 +192,53 @@ Handoff works best when threads are kept short and focused:
 - Create handoff when moving to related but distinct work
 - Reference memory file for broader context
 
+## Testing
+
+The handoff plugin includes a comprehensive automated test suite with **56+ tests** covering all functionality. No manual testing required!
+
+### Quick Test Run
+
+```bash
+cd plugins/handoff
+./tests/run_tests.sh all
+```
+
+### Test Coverage
+
+- **Unit Tests** (19 tests) — Plugin structure, configuration, format
+- **Integration Tests** (10+ tests) — SDK functionality, command execution, context extraction
+- **Shell Tests** (27+ tests) — CLI interface, file validation, error handling
+
+### Running Specific Tests
+
+```bash
+./tests/run_tests.sh structure      # Structure validation only
+./tests/run_tests.sh unit           # Unit tests
+./tests/run_tests.sh integration    # SDK tests (requires API key)
+./tests/run_tests.sh shell          # BATS tests
+./tests/run_tests.sh coverage       # Generate coverage report
+```
+
+### Test Requirements
+
+```bash
+# Basic (for structure/shell tests)
+pip install pytest pytest-asyncio
+
+# Full (includes SDK tests)
+pip install pytest pytest-asyncio pytest-cov claude-agent-sdk
+brew install bats-core  # macOS; apt-get install bats on Ubuntu
+```
+
+### CI/CD
+
+Tests run automatically on push/PR via GitHub Actions. View results at:
+```
+https://github.com/jamiemills/plugin-marketplace/actions
+```
+
+For detailed testing documentation, see [TESTING.md](TESTING.md).
+
 ## Configuration
 
 The plugin works out of the box with no configuration needed. However, you can customise behaviour by editing the handoff command in `.claude/commands/handoff.md`.
