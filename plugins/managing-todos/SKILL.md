@@ -80,7 +80,7 @@ When user asks for "incomplete", "uncompleted", "pending", or similar:
 1. Run `git pull` to sync (if first operation of the day)
 2. Read all todo files
 3. Filter for items with `[ ]` prefix
-4. Display as list **with checkboxes** (include the `[ ]` prefix)
+4. Display as list **without checkboxes** (remove the `[ ]` prefix)
 
 ### View all todos
 When user asks for "all todos", "list todos", or general todo list:
