@@ -68,6 +68,26 @@ When a todo is moved:
 2. Read the txt file for that date (e.g., `2026.01.05.txt`)
 3. Display all todos with their checkbox status
 
+### View all completed todos
+When user asks for "completed", "done", or similar:
+1. Run `git pull` to sync (if first operation of the day)
+2. Read all todo files
+3. Filter for items with `[x]` prefix
+4. Display as list **without checkboxes** (remove the `[x]` prefix)
+
+### View all incomplete todos
+When user asks for "incomplete", "uncompleted", "pending", or similar:
+1. Run `git pull` to sync (if first operation of the day)
+2. Read all todo files
+3. Filter for items with `[ ]` prefix
+4. Display as list **with checkboxes** (include the `[ ]` prefix)
+
+### View all todos
+When user asks for "all todos", "list todos", or general todo list:
+1. Run `git pull` to sync (if first operation of the day)
+2. Read all todo files
+3. Display all items **with checkboxes** (include `[ ]` or `[x]` prefix)
+
 ### Add a new todo (today)
 1. Run `git pull` to sync if this is the first operation of the day
 2. Get today's date (e.g., 2026.01.05)
