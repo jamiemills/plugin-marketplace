@@ -26,6 +26,21 @@ Each line in the txt file is a todo item with checkbox:
 [x] Review PR #42
 ```
 
+## Todo Identifiers
+
+Every todo has a unique identifier based on the first 7 characters of a SHA-1 hash, appended at the end:
+```
+[ ] Buy groceries (2e9d244)
+[x] Review PR #42 (a1b2c3d)
+```
+
+### ID Rules
+- Always append the ID in parentheses at the end of the todo text
+- If a todo doesn't have an ID, generate and add one
+- Do not validate or check IDs; assume they are correct if listed
+- Duplicates are acceptable; no action needed
+- Do not ask the user about IDs unless they ask you to review or change them
+
 ## Core Rules
 
 ### Default Behavior
@@ -92,22 +107,25 @@ When user asks for "all todos", "list todos", or general todo list:
 1. Run `git pull` to sync if this is the first operation of the day
 2. Get today's date (e.g., 2026.01.05)
 3. Read or create the file for today's date (e.g., `2026.01.05.txt`)
-4. Append a new line: `[ ] Task description`
-5. Commit and push: `git add YYYY.MM.DD.txt && git commit -m "Add: Task description" && git push`
+4. Generate a unique ID (first 7 chars of a SHA-1 hash)
+5. Append a new line: `[ ] Task description (id)`
+6. Commit and push: `git add YYYY.MM.DD.txt && git commit -m "Add: Task description" && git push`
 
 ### Add a todo to later.txt (uncertain date)
 1. Run `git pull` to sync if this is the first operation of the day
 2. Read or create `later.txt`
-3. Append a new line: `[ ] Task description`
-4. Commit and push: `git add later.txt && git commit -m "Add: Task description to later" && git push`
+3. Generate a unique ID (first 7 chars of a SHA-1 hash)
+4. Append a new line: `[ ] Task description (id)`
+5. Commit and push: `git add later.txt && git commit -m "Add: Task description to later" && git push`
 
 ### Add a todo for a specific date
 1. Parse the user's date specification (e.g., "Wednesday", "next Friday")
 2. Determine the target date, advising the user of assumptions made
 3. Run `git pull` to sync if this is the first operation of the day
 4. Read or create the file for that date (e.g., `2026.01.08.txt`)
-5. Append: `[ ] Task description`
-6. Commit and push: `git add YYYY.MM.DD.txt && git commit -m "Add: Task description to YYYY.MM.DD" && git push`
+5. Generate a unique ID (first 7 chars of a SHA-1 hash)
+6. Append: `[ ] Task description (id)`
+7. Commit and push: `git add YYYY.MM.DD.txt && git commit -m "Add: Task description to YYYY.MM.DD" && git push`
 
 ### Mark a todo as completed
 1. Run `git pull` to sync if this is the first operation of the day
