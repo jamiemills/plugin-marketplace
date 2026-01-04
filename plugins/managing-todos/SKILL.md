@@ -101,6 +101,19 @@ When a todo is moved:
 - After any change (add, update, delete, move), run `git pull` to sync, then commit and push
 - This ensures the local repo is always up to date before and after changes
 
+## Daily Review
+
+At the start of each day, check for incomplete todos from yesterday:
+1. Read yesterday's todo file
+2. Identify all items with `[ ]` prefix (incomplete)
+3. For each incomplete todo, ask the user:
+   - "**[Todo text]** - Move this to another day, or to later?"
+   - If moving to another day: "What day should this go to?"
+   - If moving to later: Add to `later.txt`
+   - If keeping today: Leave in today's file
+4. Update files accordingly and commit/push changes
+5. Ask proactively at the start of each day if there are incomplete todos from yesterday
+
 ## Workflows
 
 ### View todos for a date
