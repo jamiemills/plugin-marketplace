@@ -18,6 +18,51 @@ Browse available plugins:
 
 ## Available Plugins
 
+### handoff
+
+Extract context from your current thread and start a new focused session. Intelligently replicates [Amp's handoff feature](https://ampcode.com/news/handoff) for Claude Code.
+
+**Installation:**
+
+```bash
+/plugin install jamiemills/plugin-marketplace#plugins/handoff
+```
+
+**Features:**
+- Goal-driven context extraction using Haiku model
+- Selective extraction (not lossy summarisation)
+- Persistent memory files for context preservation
+- User-reviewed handoff prompts before new session
+- Automatic file and decision identification
+- Complete workflow documentation
+
+**Usage:**
+
+```bash
+/handoff <your next goal>
+```
+
+**Examples:**
+
+```bash
+/handoff now implement the user profile component using the auth system we just built
+/handoff identify all places in the codebase where this pattern is used
+/handoff verify the fix works across all related components
+```
+
+**Testing:**
+
+The plugin includes 56+ automated tests. Run locally:
+
+```bash
+cd plugins/handoff
+./tests/run_tests.sh all
+```
+
+See the [handoff plugin documentation](plugins/handoff/README.md) and [testing guide](plugins/handoff/TESTING.md) for detailed information.
+
+---
+
 ### perplexity-cli
 
 Query Perplexity.ai directly from the terminal. Provides structured JSON output with source references.
