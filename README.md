@@ -2,6 +2,14 @@
 
 A collection of Claude Code agent skills and plugins for enhanced AI capabilities.
 
+## What's Included
+
+| Item | Type | Version | Purpose |
+|------|------|---------|---------|
+| handoff | Plugin | v0.1.0 | Context extraction and intelligent session handoff |
+| managing-todos | Skill | Active | Task management with git-synced todo lists |
+| perplexity-cli | Plugin | v1.0.0 | Query Perplexity.ai with source citations |
+
 ## Installation
 
 Add this marketplace to your Claude Code installation:
@@ -63,6 +71,40 @@ See the [handoff plugin documentation](plugins/handoff/README.md) and [testing g
 
 ---
 
+### managing-todos
+
+Manage task lists in a local git-synced repository with checkbox formatting. Perfect for tracking work items, daily tasks, and project planning.
+
+**Features:**
+- Checkbox-based task management (`[ ]` unchecked, `[x]` completed)
+- Daily todo files with automatic date handling (YYYY.MM.DD.txt format)
+- Flexible date specifications ("tomorrow", "next Friday", "in 3 days", etc.)
+- Automatic git synchronisation on every change
+- Completed todos preserved in files (never deleted)
+- Support for uncertain dates using `later.txt`
+
+**Usage:**
+
+Claude Code automatically invokes managing-todos when managing your task list. Examples:
+
+```
+Add a todo for tomorrow: "Create unit tests for the auth module"
+Mark as complete: "Buy groceries"
+Move to next week: "Refactor the database schema"
+View todos: "Show my tasks for Friday"
+```
+
+**Workflow Examples:**
+- Add today: "Add a task" → added to today's date file
+- Add specific date: "Add 'Review design' for next Monday" → added to 2026.01.06.txt
+- Mark complete: "Done with the database migration" → marks checkbox as `[x]`
+- Move todo: "Reschedule 'Team meeting prep' to Thursday" → updates file and date
+- Uncertain dates: "Learn Rust later" → added to `later.txt` for future scheduling
+
+See the [managing-todos skill documentation](plugins/managing-todos/SKILL.md) for complete workflows and detailed instructions.
+
+---
+
 ### perplexity-cli
 
 Query Perplexity.ai directly from the terminal. Provides structured JSON output with source references.
@@ -70,7 +112,7 @@ Query Perplexity.ai directly from the terminal. Provides structured JSON output 
 **Installation:**
 
 ```bash
-/plugin install perplexity-cli@plugin-marketplace
+/plugin install jamiemills/plugin-marketplace#plugins/perplexity-cli
 ```
 
 **Features:**
@@ -93,10 +135,22 @@ See the [perplexity-cli plugin documentation](plugins/perplexity-cli/README.md) 
 ## Usage
 
 Once installed, Claude Code will automatically invoke the relevant skill when you need:
+
+**Task Management:**
+- Add, update, or schedule todos
+- Track work items and daily tasks
+- Manage project planning and task organisation
+
+**Research & Information:**
 - Current information or recent events
 - Detailed explanations with source references
 - Research topics with verified citations
 - Structured data parsing in JSON format
+
+**Session Workflow:**
+- Extract context and hand off to focused new sessions
+- Preserve important decisions and findings
+- Continue complex work across sessions
 
 ## Contributing
 
