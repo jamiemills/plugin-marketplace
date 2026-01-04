@@ -91,9 +91,9 @@ When user asks for "all todos", "list todos", or general todo list:
 ### Add a new todo (today)
 1. Run `git pull` to sync if this is the first operation of the day
 2. Get today's date (e.g., 2026.01.05)
-3. Read or create `2026.01.05.txt`
+3. Read or create the file for today's date (e.g., `2026.01.05.txt`)
 4. Append a new line: `[ ] Task description`
-5. Commit and push: `git add 2026.01.05.txt && git commit -m "Add: Task description" && git push`
+5. Commit and push: `git add YYYY.MM.DD.txt && git commit -m "Add: Task description" && git push`
 
 ### Add a todo to later.txt (uncertain date)
 1. Run `git pull` to sync if this is the first operation of the day
