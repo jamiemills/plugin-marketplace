@@ -1,11 +1,26 @@
 ---
 name: managing-todos
-description: Manages todo lists in the local to-dos repository with checkbox formatting. Adds, updates, deletes, and views todos in daily txt files, syncing with git. Use for task management and organizing work items.
+description: Manages personal todo lists in the local to-dos repository with checkbox formatting. Adds, updates, deletes, and views todos in daily txt files, syncing with git. Use ONLY when user explicitly references their personal todos, todo list, or todo repo.
 ---
 
 # Managing Todos Skill
 
-Manages todo items stored in the local to-dos repository at `$HOME/projects/wip/to-dos/`.
+Manages personal todo items stored in the local to-dos repository at `$HOME/projects/wip/to-dos/`.
+
+## Scope & Usage
+
+**This skill applies ONLY to personal todo management.** Use it when the user explicitly references:
+- "my todos", "my todo list", "my todo repo", "my personal todos"
+- "add to my todos", "move this to my todo list", "check my todos"
+
+**Never use this skill for:**
+- Conversation planning or task planning
+- Amp thread task tracking or deliverables
+- Action items or next steps discussed in conversations
+- Project tasks, sprints, or team workflows
+- Any context where you're tracking work FOR the conversation rather than the user's personal todo system
+
+If unsure, ask: "Do you want to add this to your personal todo repo, or track it as a conversation task?"
 
 ## How It Works
 
@@ -42,6 +57,16 @@ Every todo has a unique identifier based on the first 7 characters of a SHA-1 ha
 - Do not ask the user about IDs unless they ask you to review or change them
 
 ## Core Rules
+
+### When to Use This Skill
+Only trigger this skill when the user explicitly uses language like:
+- "add to my todos"
+- "move this to my todo list"
+- "show me my todos"
+- "mark complete in my todos"
+- "to my personal todo repo"
+
+Do NOT trigger based on casual mentions of tasks or plans.
 
 ### Default Behavior
 - When adding a todo without specifying a date, add it to **today's date**
