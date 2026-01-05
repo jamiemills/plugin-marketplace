@@ -243,6 +243,7 @@ Always display todos using this exact format unless otherwise instructed:
 - Text wrapping: if a todo exceeds 38 characters (40 content width minus `- `), wrap to next line with 2 spaces indent
 - Line spacing: one todo per line (no blank lines between todos)
 - Indentation on wrapped lines: 2 spaces (aligns under the todo text, not the dash)
+- Ordering: for any single date, display incomplete todos ([ ]) first, then completed todos ([x])
 
 **Examples of wrapping:**
 - Single line: `│ - short todo item                       │`
