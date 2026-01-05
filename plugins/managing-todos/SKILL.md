@@ -101,6 +101,14 @@ When a todo is moved:
 - After any change (add, update, delete, move), run `git pull` to sync, then commit and push
 - This ensures the local repo is always up to date before and after changes
 
+## Automatic Daily Review Trigger
+
+At the start of any conversation, if it's a new calendar day (different from the last conversation):
+1. Automatically run the daily review workflow
+2. Do not wait for the user to ask about todos
+3. Run it proactively as part of conversation initialization
+4. This ensures the daily review happens automatically every morning
+
 ## Daily Review
 
 At the start of each day, check for incomplete todos from yesterday:
