@@ -219,34 +219,47 @@ Repo location: `$HOME/projects/wip/to-dos/`
 
 ## Todo Display Format
 
-Always display todos using this exact format unless otherwise instructed:
+Always display todos using the appropriate format based on content:
 
 **Box Structure:**
 ```
 ┌─ My ToDos ───────────────────────────────┐
-│ - todo item one                          │
-│ - todo item two                          │
-│ - todo item three that is very long and  │
-│   wraps to the next line                 │
+│ item text                                │
+│ more item text                           │
 └──────────────────────────────────────────┘
 ```
 
-**Specifications:**
+**Format Selection:**
+
+1. **Mix of incomplete and complete todos** - Use checkboxes, no leading dash:
+   ```
+   [ ] incomplete item
+   [x] completed item
+   ```
+
+2. **Only incomplete todos** - Use leading dash format:
+   ```
+   - incomplete item one
+   - incomplete item two that wraps to next
+     line with proper indentation
+   ```
+
+3. **Only complete todos** - Use tick format with no checkbox or dash:
+   ```
+   ✓ completed item one
+   ✓ completed item two
+   ```
+
+**Specifications (all formats):**
 - Top border: `┌─ My ToDos ` followed by dashes to fill, then `┐`
 - Left border: `│ ` (pipe + space)
 - Right border: ` │` (space + pipe)
 - Bottom border: `└` + dashes to match width + `┘`
 - Total width: 42 characters (40 chars content + 2 for borders)
 - Content width: 40 characters
-- Each todo item starts with `- ` (dash + space)
 - Text alignment: left-justified with 2-space indent for wrapped lines
-- Text wrapping: if a todo exceeds 38 characters (40 content width minus `- `), wrap to next line with 2 spaces indent
-- Line spacing: one todo per line (no blank lines between todos)
-- Indentation on wrapped lines: 2 spaces (aligns under the todo text, not the dash)
-- Ordering: for any single date, display incomplete todos ([ ]) first, then completed todos ([x])
+- Text wrapping: when text exceeds available width, wrap to next line with 2 spaces indent
+- Line spacing: one todo per line (no blank lines between todos unless grouping by date)
+- Ordering: for any single date, display incomplete todos first, then completed todos
 
-**Examples of wrapping:**
-- Single line: `│ - short todo item                       │`
-- Wrapped: `│ - very long todo that wraps to the next │` followed by `│   line with proper indentation        │`
-
-Always use this display format for all todo list outputs.
+Always use the appropriate display format for all todo list outputs.
