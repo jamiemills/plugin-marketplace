@@ -22,6 +22,16 @@ Manages personal todo items stored in the local to-dos repository at `$HOME/proj
 
 If unsure, ask: "Do you want to add this to your personal todo repo, or track it as a conversation task?"
 
+## Skill File Sync Workflow
+
+Whenever updating this skill file at `/Users/jamie.mills/.config/agents/skills/managing-todos/SKILL.md`:
+1. Make the update to the local skill file
+2. Automatically sync the same changes to `/Users/jamie.mills/projects/code/agent-skills/plugins/managing-todos/SKILL.md`
+3. Commit the change to the agent-skills repo with a descriptive message
+4. Push to remote
+
+This ensures both versions stay in sync.
+
 ## How It Works
 
 - Todos are stored in daily txt files (named `YYYY.MM.DD.txt`) or in `later.txt` for uncertain dates
