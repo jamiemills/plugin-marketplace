@@ -103,7 +103,7 @@ When a todo is moved:
 
 ## Automatic Daily Review Trigger
 
-At the start of any conversation, if it's a new calendar day (different from the last conversation):
+At the first interaction after 0600 am local time (different from the last conversation):
 1. Automatically run the daily review workflow
 2. Do not wait for the user to ask about todos
 3. Run it proactively as part of conversation initialization
@@ -111,16 +111,17 @@ At the start of any conversation, if it's a new calendar day (different from the
 
 ## Daily Review
 
-At the start of each day, check for incomplete todos from yesterday:
-1. Read yesterday's todo file
-2. Identify all items with `[ ]` prefix (incomplete)
-3. By default, automatically move all incomplete todos from yesterday to `later.txt`
-4. Update files accordingly and commit/push changes with message: "Move: [N] incomplete todos from yesterday to later"
-5. List the moved todos for the user
-6. Ask: "Do you want any of these moved to today or another day?"
-7. Only move todos out of later if the user explicitly requests it (specify date or "today")
-8. If the user ignores the question, take no further action
-9. If user requests moves, update files, commit and push
+At the first interaction after 0600 am local time, check for incomplete todos from yesterday:
+1. Run `git pull` to get latest changes
+2. Read yesterday's todo file
+3. Identify all items with `[ ]` prefix (incomplete)
+4. By default, automatically move all incomplete todos from yesterday to `later.txt`
+5. Update files accordingly and commit/push changes with message: "Move: [N] incomplete todos from yesterday to later"
+6. List the moved todos for the user
+7. Ask: "Do you want any of these moved to today or another day?"
+8. Only move todos out of later if the user explicitly requests it (specify date or "today")
+9. If the user ignores the question, take no further action
+10. If user requests moves, update files, commit and push
 
 ## Workflows
 
