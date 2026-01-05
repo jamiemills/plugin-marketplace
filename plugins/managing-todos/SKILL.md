@@ -215,3 +215,36 @@ Repo location: `$HOME/projects/wip/to-dos/`
 - January 6: `2026.01.06.txt`
 - Never use alternative naming schemes (no `01-05-2026.txt`, no `todo-2026-01-05.txt`, etc.)
 - No files are created for dates with no todos; this is acceptable
+
+## Todo Display Format
+
+Always display todos using this exact format unless otherwise instructed:
+
+**Box Structure:**
+```
+┌─ My ToDos ───────────────────────────────┐
+│ - todo item one                          │
+│ - todo item two                          │
+│ - todo item three that is very long and  │
+│   wraps to the next line                 │
+└──────────────────────────────────────────┘
+```
+
+**Specifications:**
+- Top border: `┌─ My ToDos ` followed by dashes to fill, then `┐`
+- Left border: `│ ` (pipe + space)
+- Right border: ` │` (space + pipe)
+- Bottom border: `└` + dashes to match width + `┘`
+- Total width: 42 characters (40 chars content + 2 for borders)
+- Content width: 40 characters
+- Each todo item starts with `- ` (dash + space)
+- Text alignment: left-justified with 2-space indent for wrapped lines
+- Text wrapping: if a todo exceeds 38 characters (40 content width minus `- `), wrap to next line with 2 spaces indent
+- Line spacing: one todo per line (no blank lines between todos)
+- Indentation on wrapped lines: 2 spaces (aligns under the todo text, not the dash)
+
+**Examples of wrapping:**
+- Single line: `│ - short todo item                       │`
+- Wrapped: `│ - very long todo that wraps to the next │` followed by `│   line with proper indentation        │`
+
+Always use this display format for all todo list outputs.
