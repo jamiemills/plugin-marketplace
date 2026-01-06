@@ -42,6 +42,16 @@ This ensures both versions stay in sync.
 - Only one todo file exists per date; never create duplicate files for the same date
 - `later.txt` holds todos with uncertain or unspecified dates
 
+**Automatic Maintenance Rule:**
+Whenever ANY todo file is read (for any operation):
+1. Check all incomplete `[ ]` todos for missing IDs (no trailing parentheses)
+2. Generate and append IDs (7-char SHA-1) for any incomplete todos without them
+3. Reorder todos: incomplete first, then complete
+4. If any changes were made (missing IDs added or order changed), commit: `git add filename && git commit -m "Update: add missing IDs and reorder todos" && git push`
+5. Then proceed with the requested operation
+
+This ensures the file is always clean and consistent before any operation.
+
 ## File Format
 
 Each line in the txt file is a todo item with checkbox:
