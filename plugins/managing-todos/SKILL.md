@@ -138,7 +138,18 @@ At the first interaction after 0600 am local time, check for incomplete todos fr
 ### View todos for a date
 1. Run `git pull` to sync (if first operation of the day)
 2. Read the txt file for that date (e.g., `2026.01.05.txt`)
-3. Display all todos with their checkbox status
+3. **Reorder todos**: Separate incomplete `[ ]` and complete `[x]` items, writing incomplete items first, then complete items
+4. If reordering changed the file, commit: `git add YYYY.MM.DD.txt && git commit -m "Reorder: todos by completion status" && git push`
+5. Display all todos with their checkbox status
+
+### Reorder todos in a file
+Whenever viewing or modifying a day's todos:
+1. Read the todo file
+2. Separate into two groups: incomplete `[ ]` items and complete `[x]` items
+3. Write back to file with incomplete items first (preserving order within each group), then complete items
+4. Commit if order changed: `git add YYYY.MM.DD.txt && git commit -m "Reorder: todos by completion status" && git push`
+
+This ensures incomplete todos always appear at the top of each file.
 
 ### View all completed todos
 When user asks for "completed", "done", or similar:
