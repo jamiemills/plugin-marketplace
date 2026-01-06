@@ -78,6 +78,13 @@ Every todo has a unique identifier based on the first 7 characters of a SHA-1 ha
 
 ## Core Rules
 
+### File Sync on Skill Updates
+Whenever the managing-todos SKILL.md file is updated:
+1. Make changes to `/Users/jamie.mills/.config/agents/skills/managing-todos/SKILL.md`
+2. Automatically sync to `/Users/jamie.mills/projects/code/agent-skills/plugins/managing-todos/SKILL.md`
+3. Commit to agent-skills repo: `git add plugins/managing-todos/SKILL.md && git commit -m "message" && git push`
+4. Both skill files are always kept in sync
+
 ### When to Use This Skill
 Only trigger this skill when the user explicitly uses language like:
 - "add to my todos"
