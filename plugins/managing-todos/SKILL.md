@@ -261,15 +261,29 @@ Always display todos using the appropriate format based on content:
    ```
 
 **Specifications (all formats):**
-- Top border: `┌─ My ToDos ` followed by dashes to fill, then `┐`
-- Left border: `│ ` (pipe + space)
-- Right border: ` │` (space + pipe)
-- Bottom border: `└` + dashes to match width + `┘`
-- Total width: 42 characters (40 chars content + 2 for borders)
-- Content width: 40 characters
+- Total width: 36 characters (box width including borders)
+- Left border: `│` (pipe)
+- Right border: `│` (pipe)
+- Content area: 34 characters (between the pipes)
 - Text alignment: left-justified with 2-space indent for wrapped lines
 - Text wrapping: when text exceeds available width, wrap to next line with 2 spaces indent
 - Line spacing: one todo per line (no blank lines between todos unless grouping by date)
 - Ordering: for any single date, display incomplete todos first, then completed todos
+
+**Critical Border Alignment Rule:**
+Every line MUST be exactly 36 characters wide including both pipes. The content between pipes must be exactly 34 characters. Pad all lines with trailing spaces to reach exactly 34 characters before the closing `│`.
+
+**Example of correct alignment (each line is 36 chars total):**
+```
+┌─ My ToDos ───────────────────────┐
+│ Tuesday 6 January:               │
+│ [ ] get latest update re vendor  │
+└──────────────────────────────────┘
+```
+
+Count characters carefully:
+- `│ Tuesday 6 January:               │` = 1 (pipe) + 1 (space) + 32 (text) + 2 (spaces) + 1 (pipe) = 37... actually 1 + 34 + 1 = 36
+
+The formula: `│` + (34 chars of content) + `│` = 36 total
 
 Always use the appropriate display format for all todo list outputs.
