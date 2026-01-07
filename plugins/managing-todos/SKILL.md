@@ -130,25 +130,23 @@ When a todo is moved:
 
 ## Automatic Daily Review Trigger
 
-At the first interaction after 0600 am local time (different from the last conversation):
-1. Automatically run the daily review workflow
-2. Do not wait for the user to ask about todos
-3. Run it proactively as part of conversation initialization
-4. This ensures the daily review happens automatically every morning
+**CRITICAL: Always run this on EVERY todo operation, not just first interaction after 0600 am.**
 
-## Daily Review
+Whenever ANY todo file is read or accessed for any operation:
+1. Run `git pull` to sync
+2. Check ALL todo files with dates before today for incomplete `[ ]` todos
+3. If any past-dated files have incomplete todos, automatically move them to `later.txt`
+4. Commit: `git add <all-affected-files> && git commit -m "Move: [N] incomplete todos from past dates to later" && git push`
+5. List the moved todos for the user
+6. Ask: "Do you want any of these moved to today or a specific date?"
+7. Only move todos out of later if user explicitly requests it
+8. If user ignores question, take no further action
 
-At the first interaction after 0600 am local time, check for incomplete todos from yesterday:
-1. Run `git pull` to get latest changes
-2. Read yesterday's todo file
-3. Identify all items with `[ ]` prefix (incomplete)
-4. By default, automatically move all incomplete todos from yesterday to `later.txt`
-5. Update files accordingly and commit/push changes with message: "Move: [N] incomplete todos from yesterday to later"
-6. List the moved todos for the user
-7. Ask: "Do you want any of these moved to today or another day?"
-8. Only move todos out of later if the user explicitly requests it (specify date or "today")
-9. If the user ignores the question, take no further action
-10. If user requests moves, update files, commit and push
+This ensures NO incomplete todos linger in past-dated files.
+
+## Daily Review (Original - Kept for Reference)
+
+The original daily review workflow only handled yesterday. The Automatic Daily Review Trigger above supersedes this and is more comprehensive.
 
 ## Workflows
 
