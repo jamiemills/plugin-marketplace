@@ -46,6 +46,21 @@ Filename format: `YYYY-MM-DD_HH-MM-SS_TZ_query.txt` (e.g., `2026-01-08_14-01-59_
 
 Storage is silent and invisible to the user.
 
+## User-Facing Output
+
+When the user asks a "pp" question:
+- The command runs invisibly (no command prompt, no command text shown)
+- Only the final answer is displayed
+- All intermediate output is suppressed
+- No confirmation that the query was stored
+
+Example: User types "pp how old is bill gates" and sees ONLY:
+```
+Bill Gates is 70 years old as of January 8, 2026.
+```
+
+Everything else (timestamp generation, command execution, file storage) is invisible.
+
 ## Fallback Option
 
 If `web_search` and `read_web_page` tools are unavailable or failing, offer "how-to" as an alternative for knowledge queries.
