@@ -256,23 +256,25 @@ Repo location: `$HOME/projects/wip/to-dos/`
 
 ## Todo Display Format
 
-Always display todos using the `boxes` command with ANSI rounded style.
+Always display todos using the `boxes` command with ANSI rounded style, 43 characters wide.
 
 **How to Display:**
 
 1. Collect all todos to display (filtering as needed)
 2. Format them as lines of text, organized by date if applicable
-3. Pipe them into: `boxes -d ansi-rounded`
+3. Adjust text to fit within 43-char width (accounting for `[ ] ` prefix and padding)
+4. Pipe them into: `boxes -d ansi-rounded`
 
 **Example workflow:**
 ```bash
 cat << 'EOF' | boxes -d ansi-rounded
 Friday 10 January:
-[ ] chekc in w teemu on work for Iahtiak
-[ ] get status of GA by speaking w pawel and priyanka and andy
+[ ] Check in with Teemu on Iahtiak
+[ ] Get status of GA from team
+[ ] Move Michel's work forward
 
 Saturday 11 January:
-[ ] sort out medical and dental insurance
+[ ] Sort out medical and dental
 EOF
 ```
 
