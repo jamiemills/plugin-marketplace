@@ -256,18 +256,18 @@ Repo location: `$HOME/projects/wip/to-dos/`
 
 ## Todo Display Format
 
-Always display todos using the `boxes` command with ANSI rounded style, 43 characters wide.
+Always display todos using the `boxes` command with round-corners style, 43 characters wide.
 
 **How to Display:**
 
 1. Collect all todos to display (filtering as needed)
 2. Format them as lines of text, organized by date if applicable
 3. Adjust text to fit within 43-char width (accounting for `[ ] ` prefix and padding)
-4. Pipe them into: `boxes -d ansi-rounded`
+4. Pipe them into: `boxes -d round-corners`
 
 **Example workflow:**
 ```bash
-cat << 'EOF' | boxes -d ansi-rounded
+cat << 'EOF' | boxes -d round-corners
 Friday 10 January:
 [ ] Check in with Teemu on Iahtiak
 [ ] Get status of GA from team
