@@ -256,61 +256,50 @@ Repo location: `$HOME/projects/wip/to-dos/`
 
 ## Todo Display Format
 
-Always display todos using the appropriate format based on content:
+Always display todos using the `boxes` command with ANSI rounded style.
 
-**Box Structure:**
-```
-┌─ My ToDos ───────────────────────────────┐
-│ item text                                │
-│ more item text                           │
-└──────────────────────────────────────────┘
+**How to Display:**
+
+1. Collect all todos to display (filtering as needed)
+2. Format them as lines of text, organized by date if applicable
+3. Pipe them into: `boxes -d ansi-rounded`
+
+**Example workflow:**
+```bash
+cat << 'EOF' | boxes -d ansi-rounded
+Friday 10 January:
+[ ] chekc in w teemu on work for Iahtiak
+[ ] get status of GA by speaking w pawel and priyanka and andy
+
+Saturday 11 January:
+[ ] sort out medical and dental insurance
+EOF
 ```
 
 **Format Selection:**
 
-1. **Mix of incomplete and complete todos** - Use checkboxes, no leading dash:
+1. **Mix of incomplete and complete todos** - Use checkboxes:
    ```
    [ ] incomplete item
    [x] completed item
    ```
 
-2. **Only incomplete todos** - Use leading dash format:
+2. **Only incomplete todos** - Use checkboxes with leading dash:
    ```
-   - incomplete item one
-   - incomplete item two that wraps to next
-     line with proper indentation
-   ```
-
-3. **Only complete todos** - Use tick format with no checkbox or dash:
-   ```
-   ✓ completed item one
-   ✓ completed item two
+   [ ] incomplete item one
+   [ ] incomplete item two
    ```
 
-**Specifications (all formats):**
-- Total width: 36 characters (box width including borders)
-- Left border: `│` (pipe)
-- Right border: `│` (pipe)
-- Content area: 34 characters (between the pipes)
-- Text alignment: left-justified with 2-space indent for wrapped lines
-- Text wrapping: when text exceeds available width, wrap to next line with 2 spaces indent
-- Line spacing: one todo per line (no blank lines between todos unless grouping by date)
+3. **Only complete todos** - Use checkboxes:
+   ```
+   [x] completed item one
+   [x] completed item two
+   ```
+
+**Specifications:**
+- Use `boxes -d ansi-rounded` for all displays
+- Organize todos by date groupings (include date headers)
+- Include checkboxes in all formats: `[ ]` for incomplete, `[x]` for complete
+- Line spacing: date headers followed by their todos, blank line between date groups
 - Ordering: for any single date, display incomplete todos first, then completed todos
-
-**Critical Border Alignment Rule:**
-Every line MUST be exactly 36 characters wide including both pipes. The content between pipes must be exactly 34 characters. Pad all lines with trailing spaces to reach exactly 34 characters before the closing `│`.
-
-**Example of correct alignment (each line is 36 chars total):**
-```
-┌─ My ToDos ───────────────────────┐
-│ Tuesday 6 January:               │
-│ [ ] get latest update re vendor  │
-└──────────────────────────────────┘
-```
-
-Count characters carefully:
-- `│ Tuesday 6 January:               │` = 1 (pipe) + 1 (space) + 32 (text) + 2 (spaces) + 1 (pipe) = 37... actually 1 + 34 + 1 = 36
-
-The formula: `│` + (34 chars of content) + `│` = 36 total
-
-Always use the appropriate display format for all todo list outputs.
+- The boxes command handles all border alignment and wrapping automatically
