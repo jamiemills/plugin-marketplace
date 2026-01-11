@@ -256,26 +256,25 @@ Repo location: `$HOME/projects/wip/to-dos/`
 
 ## Todo Display Format
 
-Always display todos using the `boxes` command with round-corners style, 43 characters wide.
+Display todos as plain text, organized by date with no borders or boxes.
 
 **How to Display:**
 
 1. Collect all todos to display (filtering as needed)
 2. Format them as lines of text, organized by date if applicable
-3. Adjust text to fit within 43-char width (accounting for `[ ] ` prefix and padding)
-4. Pipe them into: `boxes -d round-corners`
+3. Include date headers followed by their todos
+4. Use blank lines between date groups
 
-**Example workflow:**
-```bash
-cat << 'EOF' | boxes -d round-corners
-Friday 10 January:
-[ ] Check in with Teemu on Iahtiak
-[ ] Get status of GA from team
-[ ] Move Michel's work forward
-
+**Example output:**
+```
 Saturday 11 January:
-[ ] Sort out medical and dental
-EOF
+[ ] extend the invite to everyone to the co betting tables x 2
+[ ] create prep sessions w dev for next betting table
+[ ] sort out medical and dental insurance
+
+Sunday 12 January:
+[ ] check status of Michel's work
+[x] review PR #42
 ```
 
 **Format Selection:**
@@ -286,7 +285,7 @@ EOF
    [x] completed item
    ```
 
-2. **Only incomplete todos** - Use checkboxes with leading dash:
+2. **Only incomplete todos** - Use checkboxes:
    ```
    [ ] incomplete item one
    [ ] incomplete item two
@@ -299,9 +298,8 @@ EOF
    ```
 
 **Specifications:**
-- Use `boxes -d ansi-rounded` for all displays
+- No borders, boxes, or formatting
 - Organize todos by date groupings (include date headers)
 - Include checkboxes in all formats: `[ ]` for incomplete, `[x]` for complete
 - Line spacing: date headers followed by their todos, blank line between date groups
 - Ordering: for any single date, display incomplete todos first, then completed todos
-- The boxes command handles all border alignment and wrapping automatically
